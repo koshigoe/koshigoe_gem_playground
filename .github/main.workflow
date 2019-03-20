@@ -1,6 +1,6 @@
 workflow "Release" {
   on = "release"
-  resolves = ["Write GitHub Release"]
+  resolves = ["Write GitHub Release", "Publish Gem"]
 }
 
 action "Write GitHub Release" {

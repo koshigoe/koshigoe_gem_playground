@@ -1,0 +1,14 @@
+FROM ruby:alpine
+LABEL "com.github.actions.name"="Publish Gem"
+LABEL "com.github.actions.description"="Publish gem to rubygems.org"
+LABEL "com.github.actions.icon"="edit"
+LABEL "com.github.actions.color"="blue"
+LABEL "repository"="https://github.com/koshigoe/koshigoe_gem_playground"
+LABEL "homepage"="https://github.com/koshigoe/koshigoe_gem_playground"
+LABEL "maintainer"="koshigoe <koshigoeb@gmail.com>"
+
+RUN apk update -q \
+        && apk add -q --no-cache curl jq git
+
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

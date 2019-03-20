@@ -27,7 +27,7 @@ previous_tag_name=$(jq -r '.tag_name' previous_release.json)
 latest_tag_name=$(jq -r '.release.tag_name' $GITHUB_EVENT_PATH)
 
 # Make release note.
-release_note=<<EOF | sed ':a;N;$!ba;s/\n/\\n/g'
+release_note=$(cat <<EOF | sed ':a;N;$!ba;s/\n/\\n/g')
 https://github.com/$GITHUB_REPOSITORY/compare/${previous_tag_name}...${latest_tag_name}
 
 ### Merged
